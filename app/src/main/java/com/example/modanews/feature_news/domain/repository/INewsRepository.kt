@@ -1,20 +1,21 @@
 package com.example.modanews.feature_news.domain.repository
 
-import com.example.modanews.feature_news.data.data_source.remote.ArticleLikeDto
-import com.example.modanews.feature_news.data.data_source.remote.CommentDto
-import com.example.modanews.feature_news.data.data_source.remote.CommentLikeDto
-import com.example.modanews.common.data_source.remote.UserDto
+import com.example.modanews.common.domain.model.User
+import com.example.modanews.feature_news.domain.model.ArticleLike
+import com.example.modanews.feature_news.domain.model.Comment
+import com.example.modanews.feature_news.domain.model.CommentLike
+import kotlinx.coroutines.flow.Flow
 
 interface INewsRepository {
-    suspend fun getComments(): List<CommentDto>
+    fun getComments(): Flow<List<Comment>>
 
-    suspend fun getComment(commentId: String): CommentDto
+    suspend fun getComment(commentId: String): Comment
 
-    suspend fun addComment(comment: CommentDto)
+    suspend fun addComment(comment: Comment)
 
-    suspend fun addCommentLike(like: CommentLikeDto, commentId: String)
+    suspend fun addCommentLike(like: CommentLike)
 
-    suspend fun addArticleLike(like: ArticleLikeDto, articleId: String)
+    suspend fun addArticleLike(like: ArticleLike)
 
-    suspend fun getUser(userId: String): UserDto
+    suspend fun getUser(userId: String): User
 }

@@ -1,5 +1,6 @@
 package com.example.modanews.common.domain.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -19,5 +20,6 @@ data class Bloc(
     @PrimaryKey val blocId: String,
     val content: String,
     val subtitle: String,
+    @ColumnInfo(index = true)
     val articleId: String
 )

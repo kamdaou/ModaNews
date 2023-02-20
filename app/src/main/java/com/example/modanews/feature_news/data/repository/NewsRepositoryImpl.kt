@@ -1,34 +1,36 @@
 package com.example.modanews.feature_news.data.repository
 
-import com.example.modanews.feature_news.data.data_source.remote.ArticleLikeDto
-import com.example.modanews.feature_news.data.data_source.remote.CommentDto
-import com.example.modanews.feature_news.data.data_source.remote.CommentLikeDto
-import com.example.modanews.common.data_source.remote.UserDto
+import com.example.modanews.common.domain.model.User
+import com.example.modanews.feature_news.data.data_source.local.NewsDao
+import com.example.modanews.feature_news.domain.model.ArticleLike
+import com.example.modanews.feature_news.domain.model.Comment
+import com.example.modanews.feature_news.domain.model.CommentLike
 import com.example.modanews.feature_news.domain.repository.INewsRepository
+import kotlinx.coroutines.flow.Flow
 
-class NewsRepositoryImpl : INewsRepository {
+class NewsRepositoryImpl(private val newsDao: NewsDao) : INewsRepository {
 
-    override suspend fun getComments(): List<CommentDto> {
-        TODO("implement the getComments function")
+    override fun getComments(): Flow<List<Comment>> {
+        return newsDao.getComments()
     }
 
-    override suspend fun getComment(commentId: String): CommentDto {
-        TODO("Not yet implemented")
+    override suspend fun getComment(commentId: String): Comment {
+        return newsDao.getComment(commentId)
     }
 
-    override suspend fun addComment(comment: CommentDto) {
-        TODO("Not yet implemented")
+    override suspend fun addComment(comment: Comment) {
+        newsDao.addComment(comment)
     }
 
-    override suspend fun addCommentLike(like: CommentLikeDto, commentId: String) {
-        TODO("Not yet implemented")
+    override suspend fun addCommentLike(like: CommentLike) {
+        newsDao.addCommentLike(like)
     }
 
-    override suspend fun addArticleLike(like: ArticleLikeDto, articleId: String) {
-        TODO("Not yet implemented")
+    override suspend fun addArticleLike(like: ArticleLike) {
+        newsDao.addArticleLike(like)
     }
 
-    override suspend fun getUser(userId: String): UserDto {
-        TODO("Not yet implemented")
+    override suspend fun getUser(userId: String): User {
+        return newsDao.getUser(userId)
     }
 }

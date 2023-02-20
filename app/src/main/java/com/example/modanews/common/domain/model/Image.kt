@@ -1,5 +1,6 @@
 package com.example.modanews.common.domain.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -20,5 +21,6 @@ data class Image(
     val imageId: String,
 
     val url: String,
+    @ColumnInfo(index = true)
     val blocId: String
 )

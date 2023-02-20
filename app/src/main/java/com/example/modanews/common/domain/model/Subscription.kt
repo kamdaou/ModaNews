@@ -1,9 +1,10 @@
 package com.example.modanews.common.domain.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import java.sql.Date
+import java.util.Date
 
 @Entity(
     foreignKeys = [
@@ -22,5 +23,6 @@ data class Subscription (
     val totalPrice: Float,
     val startingDate: Date,
     val endingDate: Date,
+    @ColumnInfo(index = true)
     val subscriptionTypeId: String
 )

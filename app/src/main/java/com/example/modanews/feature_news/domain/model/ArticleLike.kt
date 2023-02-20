@@ -1,5 +1,6 @@
 package com.example.modanews.feature_news.domain.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -27,6 +28,8 @@ import com.example.modanews.common.domain.model.User
 data class ArticleLike(
     @PrimaryKey val articleLikeId: String,
     val score: Boolean,
+    @ColumnInfo(index = true)
     val articleId: String,
+    @ColumnInfo(index = true)
     val userId: String
 )

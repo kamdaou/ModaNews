@@ -2,7 +2,7 @@ package com.example.modanews.feature_admin.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Date
+import java.util.Date
 
 @Entity
 data class Author (
