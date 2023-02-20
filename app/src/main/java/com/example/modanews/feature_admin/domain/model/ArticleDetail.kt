@@ -1,6 +1,8 @@
 package com.example.modanews.feature_admin.domain.model
 
-import com.example.modanews.feature_admin.data.data_source.remote.Comment
+import com.example.modanews.common.domain.model.Rubric
+import com.example.modanews.feature_news.domain.model.ArticleLike
+import com.example.modanews.feature_news.domain.model.Comment
 import java.util.Date
 
 /**
