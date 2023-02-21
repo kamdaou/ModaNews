@@ -17,6 +17,7 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 @Module
 object AppModule {
+
     @Provides
     fun provideModaNewsDatabase(application: Application): ModaNewsDatabase {
         return Room.databaseBuilder(
@@ -41,5 +42,4 @@ object AppModule {
     fun provideAdminRepository(database: ModaNewsDatabase): IAdminRepository {
         return AdminRepositoryImpl(database.adminDao)
     }
-
 }

@@ -15,9 +15,6 @@ interface NewsDao {
     @Query("SELECT * FROM comment")
     fun getComments(): Flow<List<Comment>>
 
-    @Query("SELECT * FROM user WHERE userId = :userId")
-    suspend fun getUser(userId: String): User
-
     @Query("SELECT * FROM comment where commentId = :commentId")
     suspend fun getComment(commentId: String): Comment
 

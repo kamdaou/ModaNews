@@ -27,8 +27,8 @@ import androidx.room.ForeignKey
     ]
 )
 data class LinkBloc(
-    @ColumnInfo("blocId")
+    @ColumnInfo(index = true)
     val blocId: String,
-    @ColumnInfo("linkId")
+    @ColumnInfo(index = true)
     val linkId: String
 )

@@ -3,6 +3,7 @@ package com.example.modanews.common.data_source.remote
 import com.example.modanews.feature_admin.data.data_source.remote.AuthorDto
 import com.example.modanews.feature_news.data.data_source.remote.ArticleLikeDto
 import com.example.modanews.feature_news.data.data_source.remote.CommentDto
+import com.example.modanews.feature_news.data.data_source.remote.CommentLikeDto
 import java.util.Date
 
 data class ArticleDto(
@@ -13,7 +14,8 @@ data class ArticleDto(
     val author: AuthorDto,
     val publicationDate: Date,
     val rubric: RubricDto,
-    val likes: List<ArticleLikeDto>,
+    val articleLikes: List<ArticleLikeDto>,
+    val commentLikes: List<CommentLikeDto>,
     val comments: List<CommentDto>,
     val links: List<String>
 )
