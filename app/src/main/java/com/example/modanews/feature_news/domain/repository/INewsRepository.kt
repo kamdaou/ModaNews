@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface INewsRepository {
     fun getComments(): Flow<List<Comment>>
 
-    suspend fun getComment(commentId: String): Comment
+    suspend fun getComment(commentId: String): Comment?
 
     suspend fun addComment(comment: Comment)
 
@@ -17,5 +17,5 @@ interface INewsRepository {
 
     suspend fun addArticleLike(like: ArticleLike)
 
-    suspend fun getUser(userId: String): User
+    suspend fun getUser(userId: String): User?
 }

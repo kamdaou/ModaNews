@@ -16,14 +16,17 @@ interface NewsDao {
     fun getComments(): Flow<List<Comment>>
 
     @Query("SELECT * FROM comment where commentId = :commentId")
-    suspend fun getComment(commentId: String): Comment
+    suspend fun getComment(commentId: String): Comment?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addComment(comment: Comment)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addCommentLike(commentLike: CommentLike)
+    fun addCommentLike(commentLike: CommentLike)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addArticleLike(articleLike: ArticleLike)
+    fun addArticleLike(articleLike: ArticleLike)
+
+    @Query("SELECT * FROM user WHERE userId = :userId")
+    fun getUser(userId: String): User?
 }

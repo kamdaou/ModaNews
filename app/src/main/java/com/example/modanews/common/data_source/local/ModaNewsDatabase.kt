@@ -8,6 +8,7 @@ import com.example.modanews.common.domain.model.Article
 import com.example.modanews.common.domain.model.Bloc
 import com.example.modanews.common.domain.model.Image
 import com.example.modanews.common.domain.model.Link
+import com.example.modanews.common.domain.model.LinkBloc
 import com.example.modanews.common.domain.model.Rubric
 import com.example.modanews.common.domain.model.Subscription
 import com.example.modanews.common.domain.model.SubscriptionType
@@ -34,6 +35,7 @@ import com.example.modanews.utils.DateConverter
         SubscriptionType::class,
         Comment::class,
         User::class,
+        LinkBloc::class
     ],
     version = 1,
     exportSchema = false

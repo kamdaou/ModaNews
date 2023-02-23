@@ -3,7 +3,7 @@ package com.example.modanews.common.data_source.remote
 import java.util.Date
 
 data class UserDto (
-    val userId: String? = null,
+    val userId: String,
     val firstName: String,
     val lastName: String,
     val email: String,

@@ -1,8 +1,11 @@
 package com.example.modanews.di
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.example.modanews.common.data_source.local.ModaNewsDatabase
+import com.example.modanews.common.data_source.remote.api.CommonApi
+import com.example.modanews.common.data_source.remote.worker.RefreshDataWork
 import com.example.modanews.common.data_source.repository.CommonRepositoryImpl
 import com.example.modanews.common.domain.repository.ICommonRepository
 import com.example.modanews.feature_admin.data.repository.AdminRepositoryImpl
@@ -29,8 +32,13 @@ object AppModule {
     }
 
     @Provides
-    fun provideCommonRepository(database: ModaNewsDatabase): ICommonRepository {
-        return CommonRepositoryImpl(database.commonDao)
+    fun provideCommonApi(): CommonApi {
+        return CommonApi()
+    }
+
+    @Provides
+    fun provideCommonRepository(database: ModaNewsDatabase, api: CommonApi): ICommonRepository {
+        return CommonRepositoryImpl(database.commonDao, api)
     }
 
     @Provides

@@ -1,5 +1,6 @@
 package com.example.modanews.feature_news.data.repository
 
+import com.example.modanews.common.data_source.local.CommonDao
 import com.example.modanews.common.domain.model.User
 import com.example.modanews.feature_news.data.data_source.local.NewsDao
 import com.example.modanews.feature_news.domain.model.ArticleLike
@@ -14,7 +15,7 @@ class NewsRepositoryImpl(private val newsDao: NewsDao) : INewsRepository {
         return newsDao.getComments()
     }
 
-    override suspend fun getComment(commentId: String): Comment {
+    override suspend fun getComment(commentId: String): Comment? {
         return newsDao.getComment(commentId)
     }
 
@@ -30,7 +31,7 @@ class NewsRepositoryImpl(private val newsDao: NewsDao) : INewsRepository {
         newsDao.addArticleLike(like)
     }
 
-    override suspend fun getUser(userId: String): User {
+    override suspend fun getUser(userId: String): User? {
         return newsDao.getUser(userId)
     }
 }

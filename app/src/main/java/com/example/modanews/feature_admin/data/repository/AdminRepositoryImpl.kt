@@ -7,12 +7,4 @@ import com.example.modanews.feature_admin.domain.repository.IAdminRepository
 
 class AdminRepositoryImpl(private val dao: AdminDao) : IAdminRepository {
 
-    override suspend fun setArticle(article: Article) {
-        dao.setArticle(article)
-    }
-
-    override suspend fun updateArticle(article: Article) {
-        dao.setArticle(article)
-    }
-
 }
